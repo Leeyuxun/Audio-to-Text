@@ -74,8 +74,10 @@ for file_name in path_list:
     upload = driver1.find_element_by_name('file')	#寻找上传按钮
     upload.send_keys(dir_letter_letter+'\\'+file_name)  #上传文件
     print('音频文件'+file_name+'上传成功')
-    time.sleep(50)	#睡眠50S等待音频转换完成
+    time.sleep(5)
+    driver1.execute_script("arguments[0].click();", driver1.find_element_by_xpath("//span[contains(text(),'开始转换')]"))
+    time.sleep(35)
     print('开始下载文件')
-    driver1.execute_script("arguments[0].click();", driver1.find_element_by_xpath("//a[contains(text(),'立即下载')]"))	#定位txt下载按钮并下载
+    driver1.execute_script("arguments[0].click();", driver1.find_element_by_xpath("//a[contains(text(),'立即下载')]"))#定位txt下载按钮并下载
     print('文件下载成功')
 print('所有文件下载完成')
