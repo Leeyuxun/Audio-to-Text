@@ -92,10 +92,12 @@ for path,dir_list,file_list in os.walk(dir_letter):
         print ("音频"+file_name_change2+"切割完成")
 print("所有音频切割完成")
 
+os.makedirs(dir_letter_txt)
+
 # 转换音频文件
 # 更改firefox默认下载设置，不懂可自行Google
 profile = webdriver.FirefoxProfile()
-profile.set_preference('browser.download.dir',dir_letter_letter)
+profile.set_preference('browser.download.dir',dir_letter_txt)
 profile.set_preference('browser.download.folderList',2)
 profile.set_preference('browser.download.manager.showWhenStarting',False)
 profile.set_preference('browser.helperApps.neverAsk.saveToDisk','text/plain')
